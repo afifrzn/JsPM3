@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        class persegipanjang {
+
+            constructor(panjang, lebar) {
+                this.panjang = panjang;
+                this.lebar = lebar;
+            }
+
+            luas() {
+                document.write('Hasil dari luas adalah berikut ' + (this.panjang*this.lebar) + '<br>');
+            }
+
+            keliling() {
+                document.write('Hasil dari keliling adalah berikut ' + (2 * (Number(this.panjang)+Number(this.lebar))));
+            }
+        }
+
+        const input = new persegipanjang("10", "20");
+        input.luas();
+        input.keliling();
+    </script>
+  </body>
+</html>

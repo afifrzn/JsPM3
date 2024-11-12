@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class AccBank {
+        constructor(nama, nomorRekening, saldo) {
+          this.nama = nama;
+          this.nomorRekening = nomorRekening;
+          this.saldo = saldo;
+        }
+
+        setor(angka) {
+          document.write('Setor saldo di rekening ' + this.nomorRekening + ' sebanyak ' + angka + ' ini total rekening sekarang ' + (Number(this.saldo) + Number(angka)));
+        }
+        tarik(angka) {
+          document.write('Tarik saldo dari rekening ' + this.nomorRekening + ' sebanyak ' + angka + ' ini total rekening sekarang ' + (Number(this.saldo) - Number(angka)));
+        }
+        cekSaldo() {
+          document.write('Sisa saldo dari rekening ' +  this.nomorRekening + ' adalah ' + this.saldo);
+        }
+      }
+
+      const input = new AccBank("Bigun", "123456789", 100000000000000);
+      let transaksi = prompt("Mau melakukan apa? "+ "Setor atau " + "Tarik atau " + "Cek Saldo?");
+      if (transaksi == "cek") {
+        input.cekSaldo();
+      } else if (transaksi == "setor") {
+        let angka = prompt("Masukkan Nominal")
+        input.setor(angka);
+      } else if (transaksi == "tarik") {
+        let angka = prompt("Masukkan Nominal")
+        input.tarik(angka);
+      } else {
+        document.write("ERROR");
+      }
+    </script>
+  </body>
+</html>
