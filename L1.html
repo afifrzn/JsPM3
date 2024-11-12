@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .fizz {
+            color: blue;
+            font-weight: bold;
+        }
+        .buzz {
+            color: green;
+            font-weight: bold;
+        }
+        .fizzbuzz {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Loop For PM3</h1>
+    <div id="output"></div>
+
+    <script>
+        const outputDiv = document.getElementById('output');
+
+        for (let i = 1; i <= 20; i++) {
+            let output = '';
+
+            if (i % 3 === 0 && i % 5 === 0) {
+                output = `<span class="fizzbuzz">FizzBuzz</span>`;
+            } else if (i % 3 === 0) {
+                output = `<span class="fizz">Fizz</span>`;
+            } else if (i % 5 === 0) {
+                output = `<span class="buzz">Buzz</span>`;
+            } else {
+                output = i;
+            }
+
+            outputDiv.innerHTML += output + '<br>';
+        }
+    </script>
+</body>
+</html>

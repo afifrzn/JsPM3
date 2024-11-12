@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terjemahkan Hari</title>
+</head>
+<body>
+    <h2>Masukkan Nama Hari (English)</h2>
+    <input type="text" id="hariInput" placeholder="Contoh: Monday" onkeypress="submitOnEnter(event)">
+    <button onclick="terjemahkanHari()">Terjemahkan</button>
+    <p id="hasil"></p>
+
+    <script>
+        function submitOnEnter(event) {
+            if (event.key === "Enter") {
+                terjemahkanHari();
+            }
+        }
+
+        function terjemahkanHari() {
+            const hari = document.getElementById("hariInput").value.toLowerCase();
+            let hasil;
+
+            switch (hari) {
+                case "monday":
+                    hasil = "Senin";
+                    break;
+                case "tuesday":
+                    hasil = "Selasa";
+                    break;
+                case "wednesday":
+                    hasil = "Rabu";
+                    break;
+                case "thursday":
+                    hasil = "Kamis";
+                    break;
+                case "friday":
+                    hasil = "Jumat";
+                    break;
+                case "saturday":
+                    hasil = "Sabtu";
+                    break;
+                case "sunday":
+                    hasil = "Minggu";
+                    break;
+                default:
+                    hasil = "Hari tidak dikenal";
+            }
+
+            document.getElementById("hasil").textContent = hasil;
+        }
+    </script>
+</body>
+</html>

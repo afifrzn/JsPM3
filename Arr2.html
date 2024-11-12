@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Pop</title>
+</head>
+<body>
+    <h1>Fruit Pop</h1>
+    
+    <input type="text" id="fruitInput" placeholder="Enter a fruit">
+    <button onclick="addFruit()">Add Fruit</button>
+    <button onclick="removeFruit()">Remove Last Fruit</button>
+    
+    <p id="fruitsList"></p>
+
+    <script>
+        
+        let fruits = ["Pisang", "Semangka", "Apel", "Abi"];
+
+        
+        function displayFruits() {
+            document.getElementById("fruitsList").textContent = `Fruits: [${fruits.join(", ")}]`;
+        }
+
+        
+        function addFruit() {
+            const newFruit = document.getElementById("fruitInput").value;
+            if (newFruit) {
+                fruits.push(newFruit); 
+                document.getElementById("fruitInput").value = "";
+                displayFruits(); 
+            }
+        }
+
+      
+        function removeFruit() {
+            fruits.pop(); 
+            displayFruits(); 
+        }
+
+   
+        displayFruits();
+    </script>
+</body>
+</html>

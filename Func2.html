@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjumlahan</title>
+</head>
+<body>
+    <h1>Penjumlahan</h1>
+    
+    <input type="number" id="num1" placeholder="Enter first number" onkeydown="disableArrowKeys(event)">
+    <input type="number" id="num2" placeholder="Enter second number" onkeydown="disableArrowKeys(event)">
+    <button onclick="displaySum()">Add</button>
+    
+    <p id="resultMessage"></p>
+
+    <script>
+        
+        function add(num1, num2) {
+            return num1 + num2;
+        }
+
+      
+        function displaySum() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const sum = add(num1, num2);
+            document.getElementById("resultMessage").textContent = `The sum is: ${sum}`;
+        }
+
+        function disableArrowKeys() {
+            if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+                event.preventDefault();
+            }
+        }
+    </script>
+</body>
+</html>

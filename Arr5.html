@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Words to Console</title>
+</head>
+<body>
+    <h1>Print Words to Console</h1>
+    
+    <button onclick="printWords()">Print Words</button>
+
+    <script>
+        
+        let words = ["JavaScript", "Python", "HTML", "CSS"];
+
+        
+        function printWords() {
+            words.forEach(function(word) {
+                console.log(word);
+            });
+        }
+    </script>
+</body>
+</html>

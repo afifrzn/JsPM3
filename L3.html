@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Login</title>
+</head>
+<body>
+    <h2>Masukkan Password</h2>
+    <input type="password" id="passwordInput" placeholder="Masukkan password" onkeypress="submitOnEnter(event)">
+    <button onclick="checkPassword()">Login</button>
+    <p id="message"></p>
+
+    <script>
+        function submitOnEnter(event) {
+            if (event.key === "Enter") {
+                checkPassword();
+            }
+        }
+
+        function checkPassword() {
+            let password = document.getElementById("passwordInput").value;
+
+            if (password === "JavaScript") {
+                document.getElementById("message").textContent = "Login berhasil";
+            } else {
+                document.getElementById("message").textContent = "Password salah, coba lagi.";
+                document.getElementById("passwordInput").value = "";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengalikan isi array dikali 2</title>
+</head>
+<body>
+    <h1>Isi array kali 2</h1>
+    
+    <button onclick="displayDoubledArray()">Double Array Elements</button>
+    
+    <p id="resultMessage"></p>
+
+    <script>
+        
+        let numbers = [1, 2, 3, 4, 5];
+
+       
+        function doubleArrayElements() {
+            return numbers.map(num => num * 2);
+        }
+
+        
+        function displayDoubledArray() {
+            const doubledNumbers = doubleArrayElements();
+            document.getElementById("resultMessage").textContent = 
+                `Original array: [${numbers.join(", ")}] - Doubled array: [${doubledNumbers.join(", ")}]`;
+        }
+    </script>
+</body>
+</html>

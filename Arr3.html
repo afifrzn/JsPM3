@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saringan Nilai</title>
+</head>
+<body>
+    <h1>Atas 80</h1>
+    
+    <button onclick="Diatas80()">Show Passing Grades</button>
+    
+    <p id="resultMessage"></p>
+
+    <script>
+        
+        let grades = [85, 92, 75, 60, 95];
+
+       
+        function nilai80keatas() {
+            return grades.filter(grade => grade > 80);
+        }
+
+        
+        function Diatas80() {
+            const passingGrades = nilai80keatas();
+            document.getElementById("resultMessage").textContent = 
+                `Passing grades (above 80): [${passingGrades.join(", ")}]`;
+        }
+    </script>
+</body>
+</html>

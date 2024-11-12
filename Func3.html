@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Even or Odd</title>
+</head>
+<body>
+    <h1>Ganjil Genap</h1>
+    
+    <input type="number" id="numberInput" placeholder="Enter a number" onkeydown="dissableArrowKeys(event)" onkeypress="submitOnEnter(event)">
+    <button onclick="displayEvenOrOdd()">Check</button>
+    
+    <p id="resultMessage"></p>
+
+    <script>
+        
+        function isEven(number) {
+            return number % 2 === 0;
+        }
+
+     
+        function displayEvenOrOdd() {
+            const number = parseInt(document.getElementById("numberInput").value);
+            const result = isEven(number);
+            document.getElementById("resultMessage").textContent = 
+                result ? `${number} Adlh genap.` : `${number} Adlh ganjil.`;
+        }
+
+            function disableArrowKeys(event) {
+            if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+                event.preventDefault();
+            }
+        }
+
+        function submitOnEnter() {
+            if (event.key === "Enter") {
+                displayEvenOrOdd();
+            }
+        }
+    </script>
+</body>
+</html>

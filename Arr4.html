@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penghitung Skor</title>
+</head>
+<body>
+    <h1>Penghitung skor</h1>
+    
+    <input type="number" id="scoreInput" placeholder="Enter a score">
+    <button onclick="addScore()">Add Score</button>
+    <button onclick="hitungtotal()">Calculate Total</button>
+    
+    <p id="scoresList"></p>
+    <p id="totalMessage"></p>
+
+    <script>
+       
+        let scores = [];
+
+        
+        function addScore() {
+            const scoreInput = document.getElementById("scoreInput");
+            const score = parseInt(scoreInput.value);
+
+            if (!isNaN(score)) {
+                scores.push(score); 
+                scoreInput.value = ""; 
+                tampilkanskor(); 
+            } else {
+                alert("Please enter a valid number.");
+            }
+        }
+
+       
+        function calculateTotal() {
+            return scores.reduce((accumulator, score) => accumulator + score, 0);
+        }
+
+        
+        function hitungtotal() {
+            const total = calculateTotal();
+            document.getElementById("totalMessage").textContent = `Total Score: ${total}`;
+        }
+
+        function tampilkanskor() {
+            document.getElementById("scoresList").textContent = `Scores: [${scores.join(", ")}]`;
+        }
+    </script>
+</body>
+</html>

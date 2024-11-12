@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .fizz {
+            color: blue;
+            font-weight: bold;
+        }
+        .buzz {
+            color: green;
+            font-weight: bold;
+        }
+        .fizzbuzz {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Latihan JavaScript</h1>
+
+  
+    <h2>Loop For FizzBuzz</h2>
+    <div id="fizzbuzzOutput"></div>
+
+    <script>
+       
+        const fizzbuzzOutputDiv = document.getElementById('fizzbuzzOutput');
+        for (let i = 1; i <= 20; i++) {
+            let output = '';
+            if (i % 3 === 0 && i % 5 === 0) {
+                output = `<span class="fizzbuzz">FizzBuzz</span>`;
+            } else if (i % 3 === 0) {
+                output = `<span class="fizz">Fizz</span>`;
+            } else if (i % 5 === 0) {
+                output = `<span class="buzz">Buzz</span>`;
+            } else {
+                output = i;
+            }
+            fizzbuzzOutputDiv.innerHTML += output + '<br>';
+        }
+    </script>
+
+   
+    <h2>Input Number</h2>
+    <script>
+        let number;
+
+     
+        while (true) {
+            number = prompt("Please enter a number (less than 100 to continue):");
+            number = Number(number);
+            if (!isNaN(number)) {
+                if (number >= 100) {
+                    alert("You entered " + number + ". The loop will stop.");
+                    break; 
+                } else {
+                    alert("You entered " + number + ". The loop will continue.");
+                }
+            } else {
+                alert("That's not a valid number. Please try again.");
+            }
+        }
+    </script>
+
+   
+    <h2>Masukkan Angka</h2>
+    <input type="number" id="angkaInput" placeholder="Masukkan angka" onkeydown="disableArrowKeys(event)" onkeypress="submitOnEnter(event)">
+    <button onclick="cekAngka()">Cek</button>
+    <p id="hasil"></p>
+
+    <script>
+        function disableArrowKeys(event) {
+            if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+                event.preventDefault();
+            }
+        }
+
+        function cekAngka() {
+            const angka = parseFloat(document.getElementById("angkaInput").value);
+            if (angka > 0) {
+                document.getElementById("hasil").textContent = "Angka positif";
+            } else if (angka < 0) {
+                document.getElementById("hasil").textContent = "Angka negatif";
+            } else {
+                document.getElementById("hasil").textContent = "Angka nol";
+            }
+        }
+    </script>
+
+    
+    <h2>Masukkan Password</h2>
+    <input type="password" id="passwordInput" placeholder="Masukkan password" onkeypress="submitOnEnter(event)">
+    <button onclick="checkPassword()">Login</button>
+    <p id="message"></p>
+
+    <script>
+        function submitOnEnter(event) {
+            if (event.key === "Enter") {
+                checkPassword();
+            }
+        }
+
+        function checkPassword() {
+            let password = document.getElementById("passwordInput").value;
+            if (password === "JavaScript") {
+                document.getElementById("message").textContent = "Login berhasil";
+            } else {
+                document.getElementById("message").textContent = "Password salah, coba lagi.";
+                document.getElementById("passwordInput").value = "";
+            }
+        }
+    </script>
+
+  
+    <h2>Masukkan Nama Hari (English)</h2>
+    <input type="text" id="hariInput" placeholder="Contoh: Monday" onkeypress="submitOnEnterHari(event)">
+    <button onclick="terjemahkanHari()">Terjemahkan</button>
+    <p id="hasilHari"></p>
+
+    <script>
+        function submitOnEnterHari(event) {
+            if (event.key === "Enter") {
+                terjemahkanHari();
+            }
+        }
+
+        function terjemahkanHari() {
+            const hari = document.getElementById("hariInput").value.toLowerCase();
+            let hasil;
+
+            switch (hari) {
+                case "monday":
+                    hasil = "Senin";
+                    break;
+                case "tuesday":
+                    hasil = "Selasa";
+                    break;
+                case "wednesday":
+                    hasil = "Rabu";
+                    break;
+                case "thursday":
+                    hasil = "Kamis";
+                    break;
+                case "friday":
+                    hasil = "Jumat";
+                    break;
+                case "saturday":
+                    hasil = "Sabtu";
+                    break;
+                case "sunday":
+                    hasil = "Minggu";
+                    break;
+                default:
+                    hasil = "Hari tidak dikenal";
+            }
+
+            document.getElementById("hasilHari").textContent = hasil;
+        }
+    </script>
+</body>
+</html>

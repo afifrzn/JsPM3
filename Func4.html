@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perkalian isi array</title>
+</head>
+<body>
+    <h1>Mengalikan isi array</h1>
+    
+    <input type="text" id="arrayInput" placeholder="Pisahkan dengan koma" onkeypress="submitOnEnter(event)">
+    <button onclick="displayMultiplicationResult()">Multiply</button>
+    
+    <p id="resultMessage"></p>
+
+    <script>
+        
+        function multiplyArray(numbers) {
+            return numbers.reduce((acc, num) => acc * num, 1);
+        }
+
+        
+        function displayMultiplicationResult() {
+            const input = document.getElementById("arrayInput").value;
+            const numbers = input.split(",").map(Number); 
+            const result = multiplyArray(numbers);
+            document.getElementById("resultMessage").textContent = 
+                `The result of multiplying all numbers is: ${result}`;
+        }
+
+        function submitOnEnter() {
+            if (event.key === "Enter") {
+                displayMultiplicationResult();
+            }
+        }
+    </script>
+</body>
+</html>

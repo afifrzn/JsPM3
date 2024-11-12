@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Loop</title>
+</head>
+<body>
+    <h1>Input Number</h1>
+    <script>
+        let number;
+
+        // Loop until the user enters a number >= 100
+        while (true) {
+            number = prompt("Please enter a number (less than 100 to continue):");
+
+            // Convert the input to a number
+            number = Number(number);
+
+            // Check if the input is a valid number
+            if (!isNaN(number)) {
+                if (number >= 100) {
+                    alert("You entered " + number + ". The loop will stop.");
+                    break; // Exit the loop if the number is >= 100
+                } else {
+                    alert("You entered " + number + ". The loop will continue.");
+                }
+            } else {
+                alert("That's not a valid number. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
