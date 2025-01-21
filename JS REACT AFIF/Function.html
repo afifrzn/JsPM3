@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Clock</title>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      // Fungsi komponen Halo yang menerima props dan menampilkan nama yang diterima
+      function Halo(props) {
+        // Mengembalikan elemen <h1> yang menampilkan teks dengan properti nama
+        return <h1>Halo, saya {props.nama}</h1>;
+      }
+    
+      // Komponen kelas Kenalan yang memperluas React.Component
+      class Kenalan extends React.Component {
+        render() {
+          // Mengembalikan elemen JSX yang berisi komponen Halo dan informasi kota
+          return (
+            <div>
+              {/* Menampilkan komponen Halo dengan properti nama */}
+              <Halo nama={this.props.nama} />
+              {/* Menampilkan teks kota yang diterima dari properti */}
+              <h2>Saya dari {this.props.kota}</h2>
+            </div>
+          );
+        }
+      }
+    
+      // Elemen React utama yang berisi dua instance komponen Kenalan dengan properti berbeda
+      const element = (
+        <div>
+          {/* Instance pertama dari komponen Kenalan dengan properti nama dan kota */}
+          <Kenalan nama="Afif" kota="Sidoarjo" />
+          {/* Instance kedua dari komponen Kenalan dengan properti nama dan kota */}
+          <Kenalan nama="Abi" kota="Tulangan" />
+        </div>
+      );
+    
+      // Merender elemen React ke dalam elemen dengan ID 'root' pada DOM
+      ReactDOM.render(element, document.getElementById('root'));
+    </script>
+    
+  </body>
+</html>

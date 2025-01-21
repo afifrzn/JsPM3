@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Dynamic State</title>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      class Halo extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            warna: "red", // Warna default teks
+            salam: "Halo", // Salam default
+          };
+        }
+
+        // Fungsi untuk mengubah warna teks secara acak
+        ubahWarna = () => {
+          let warna = ["red", "blue", "green", "purple"];
+          this.setState({
+            warna: warna[Math.floor(Math.random() * warna.length)],
+          });
+        };
+
+        // Fungsi untuk mengubah salam secara acak
+        ubahSalam = () => {
+          let salam = ["Hai", "Selamat Pagi", "Selamat Siang", "Halo"];
+          this.setState({
+            salam: salam[Math.floor(Math.random() * salam.length)],
+          });
+        };
+
+        render() {
+          return (
+            <div>
+              <h2 style={{ color: this.state.warna }}>
+                {this.state.salam}, saya {this.props.nama}
+              </h2>
+              <button onClick={this.ubahWarna}>Ubah Warna</button>
+              <button onClick={this.ubahSalam}>Ubah Salam</button>
+            </div>
+          );
+        }
+      }
+
+      // Render komponen Halo dengan prop "nama"
+      ReactDOM.render(<Halo nama="Afif" />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

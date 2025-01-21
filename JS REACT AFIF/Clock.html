@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Clock</title>
+
+    <!-- Memuat React untuk membangun UI -->
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+
+    <!-- Memuat  ReactDOM untuk merender elemen React ke DOM -->
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+
+    <!-- Memuat Babel untuk mengkompilasi kode JSX menjadi JavaScript biasa -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <!-- Elemen div dengan ID "root", tempat React akan merender konten -->
+    <div id="root"></div>
+
+    <!-- Kode React ditulis di dalam script dengan type "text/babel" -->
+    <script type="text/babel">
+      // Fungsi untuk membuat dan merender elemen jam
+      function tick() {
+        const element = (
+          <div>
+            {/* Menampilkan teks "Hello, Bro!" */}
+            <h1>Hello, Bro!</h1>
+            {/* Menampilkan waktu sekarang dengan format lokal */}
+            <h2>Sekarang pukul {new Date().toLocaleTimeString()}.</h2>
+          </div>
+        );
+        // Merender elemen React ke dalam elemen HTML dengan ID "root"
+        ReactDOM.render(element, document.getElementById("root"));
+      }
+
+      // Memanggil fungsi tick setiap 1000 milidetik (1 detik)
+      setInterval(tick, 1000);
+    </script>
+  </body>
+</html>
